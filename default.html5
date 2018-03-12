@@ -12,12 +12,14 @@ $endif$
 $if(keywords)$
   <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
 $endif$
-  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$ | lorimer.id.au</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
+      span.sitenav{float:right;}
+      p.navbar{padding: 1em 0em;}
 $if(quotes)$
       q { quotes: "“" "”" "‘" "’"; }
 $endif$
@@ -44,18 +46,17 @@ $endfor$
 $for(include-before)$
 $include-before$
 $endfor$
-$if(title)$
 <header>
+$if(title)$
 <h1 class="title">$title$</h1>
 $if(subtitle)$
 <p class="subtitle">$subtitle$</p>
 $endif$
-$for(author)$
-<p class="author">$author$</p>
-$endfor$
-$if(date)$
-<p class="date">$date$</p>
-$endif$
+<p class="navbar">
+<span class="author"><a href="http://lorimer.id.au">Andrew Lorimer</a></span>
+<span class="sitenav"><a href="http://lorimer.id.au">home</a> // <a href="blog.html">blog</a> // <a href="photos.html">photos</a> // <a href="about.html">about</a></span>
+</p>
+<hr />
 </header>
 $endif$
 $if(toc)$
@@ -67,5 +68,21 @@ $body$
 $for(include-after)$
 $include-after$
 $endfor$
+<hr />
+$if(footer)$
+$else$
+<footer>
+<p>
+$author$
+$if(date)$
+$if(author)$
+//
+$endif$
+$endif$
+$date$
+</p>
+<p><a href="http://lorimer.id.au">home</a> // <a href="blog.html">blog</a> // <a href="photos.html">photos</a> // <a href="about.html">about</a></p>
+</footer>
+$endif$
 </body>
 </html>
